@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Configura tu menu</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<meta charset="UTF-8">
+
+	<!-- Insertamos el CSS -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0-rc.1/jquery.mobile-1.3.0-rc.1.min.css" />
+
+	<!-- Insertamos jQuery y jQuery Mobile -->
+	<script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.0-rc.1/jquery.mobile-1.3.0-rc.1.min.js"></script>
+
+	<style>
+
+.menu {
+display:inline-block;
+background:#fff;
+border-radius: 10px;
+box-shadow: 2px 2px 2px 2px #000; 
+width:auto;
+height:auto;
+width:100px;
+height:140px;
+padding:10px;
+margin:10px;
+}
+
+
+.mensaje {
+display:inline-block;
+background:#fff;
+border-radius: 10px;
+box-shadow: 2px 2px 2px 2px #000; 
+width:auto;
+height:auto;
+width:90%;
+min-height:300px;
+height:auto;
+padding:10px;
+margin:10px;
+}
+
+</style>
+
+
+<script>
+
+$(function(){
+
+var title = "";
+
+
+//for (i=0;i<=5;i++){
+
+
+
+	$('#menu').on('click', function(){
+
+		//$('#menu').addClass('ui-disabled');
+
+		//$("#menu").data(); 
+
+		var nombre = ($("#menu").data("dato1","dato"));
+
+					$('#mensajes').append(nombre);
+
+
+					console.log(nombre[0]);
+
+					 title += "<br> " + $("#menu").attr("name");
+
+					//console.log(title);
+
+	});
+
+		$('#menu2').on('click', function(){
+
+		//$('#menu2').addClass('ui-disabled');
+
+		//$("#menu").data(); 
+
+		var nombre = ($("#menu2").data("dato1","dato"));
+
+					$('#mensajes').append(nombre);
+
+					console.log(nombre[0]);
+
+					 title += "<br> " + $("#menu2").attr("name");
+
+					//console.log(title);
+
+	});
+
+			
+
+
+
+$('#limpiar').on('click', function(){
+
+		$('#limpiar').addClass('ui-disabled');
+
+		 location.reload();
+
+	});
+
+
+$('#enviar').on('click', function(){
+
+		$('#enviar').addClass('ui-disabled');
+
+		sessionStorage.parametro = title; //para guardar los datos
+
+
+
+	document.location.href = "formulario.php?parametro1=" + title +  "&";
+
+	});
+
+
+
+//}
+});
+</script>
+
+</head>
+<body>
+
+
+	<div rata-role="page">
+
+		<header data-role="header">
+        <h1>CONFIGURA TU MENÚ</h1>
+        </header>
+
+        <div rata-role="content">
+            <div data-role="collapsible">
+              <h1>Entrantes</h1>
+               <div data-role="collapsible">
+                    <h1>Ensaladas</h1>
+                    <div class="menu" name="ensalada1" id="menu" data-role="button"><p>Ensalada 1</p></div>
+                    <div class="menu" name="ensalada2" id="menu2" data-role="button"><p>Ensalada 2</p></div>
+                </div>
+                <div data-role="collapsible">
+                    <h1>Canapés</h1>
+                    <div class="menu" name="Canape1" id="menu3" data-role="button"><p>Canape 1</p></div>
+                    <div class="menu" name="Canape2" id="menu4" data-role="button"><p>Canape 2</p></div>
+                </div>
+
+            </div>
+            <div data-role="collapsible">
+              <h1>Primeros Platos</h1>
+                <p>Te voy a explicar que es html.</p>
+            </div>
+            <div data-role="collapsible">
+              <h1>Segundos Platos</h1>
+                <p>Te voy a explicar que es css.</p>
+            </div>
+            <div data-role="collapsible">
+              <h1>Postres</h1>
+                <p>Te voy a explicar que es js.</p>
+            </div>
+            <div data-role="collapsible">
+              <h1>Bebidas</h1>
+                <p>Te voy a explicar que es js.</p>
+            </div>         
+		</div>
+			
+
+		<div id="mensajes" class="mensaje"></div>
+		<a href="#" data-role="button" data-icon="check" id="enviar">Enviar</a>
+		<a href="#" data-role="button" data-icon="star" id="limpiar">Limpiar</a>
+		<div data-role="footer">
+        <h4>Desarrollado por Hego Comunicaciones</h4>
+        </div>
+	</div>
+
+</body>
+</html>
